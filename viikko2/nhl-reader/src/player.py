@@ -11,8 +11,10 @@ class Player:
     def __str__(self):
         # return self.name + " team " + self.team + " goals " + str(self.goals) + " assists " + str(self.assists)
         return ( 
-            f"{self.name} "
-            f"team {self.team} "
-            f"goals {self.goals} "
-            f"assists {self.assists}"
+            f"{self.name:20} "
+            f"{self.team} "
+            f"{self.goals} "
+            f" + "
+            f"{self.assists}"
+            f" = {self.goals + self.assists}"
         )
