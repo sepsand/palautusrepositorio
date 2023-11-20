@@ -8,6 +8,3 @@ __pycache__/
 # ignore coverage files
 .coverage
 htmlcov/
-
-# ignore logs folders
-logs/
