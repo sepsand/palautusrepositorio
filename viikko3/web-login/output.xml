@@ -1,426 +1,384 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231115 15:10:24.748" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231120 18:54:45.069" rpa="false" schemaversion="4">
 <suite id="s1" name="Tests" source="C:\Users\seppo\Documents\HY\Ohjelmistotuotanto\palautukset\palautusrepositorio\viikko3\web-login\src\tests">
 <suite id="s1-s1" name="Home" source="C:\Users\seppo\Documents\HY\Ohjelmistotuotanto\palautukset\palautusrepositorio\viikko3\web-login\src\tests\home.robot">
 <kw name="Open And Configure Browser" library="resource" type="SETUP">
 <kw name="Evaluate" library="BuiltIn">
 <var>${options}</var>
-<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys.modules['selenium.webdriver'].FirefoxOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20231115 15:10:29.416" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000113D0468B30&gt;</msg>
-<status status="PASS" starttime="20231115 15:10:29.415" endtime="20231115 15:10:29.416"/>
+<msg timestamp="20231120 18:54:47.481" level="INFO">${options} = &lt;selenium.webdriver.firefox.options.Options object at 0x0000025E33868200&gt;</msg>
+<status status="PASS" starttime="20231120 18:54:47.481" endtime="20231120 18:54:47.481"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20231115 15:10:29.416" endtime="20231115 15:10:29.417"/>
+<status status="PASS" starttime="20231120 18:54:47.481" endtime="20231120 18:54:47.482"/>
 </kw>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231115 15:10:29.418" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<status status="PASS" starttime="20231115 15:10:29.417" endtime="20231115 15:10:31.736"/>
+<msg timestamp="20231120 18:54:47.482" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20231120 18:54:47.482" endtime="20231120 18:54:56.106"/>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <arg>${DELAY}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20231115 15:10:31.736" endtime="20231115 15:10:31.737"/>
+<status status="PASS" starttime="20231120 18:54:56.106" endtime="20231120 18:54:56.107"/>
 </kw>
-<status status="PASS" starttime="20231115 15:10:29.415" endtime="20231115 15:10:31.738"/>
+<status status="PASS" starttime="20231120 18:54:47.481" endtime="20231120 18:54:56.107"/>
 </kw>
 <test id="s1-s1-t1" name="Click Login Link" line="8">
-<kw name="Go To Main Page" library="resource" type="SETUP">
+<kw name="Go To Starting Page" library="resource" type="SETUP">
 <kw name="Go To" library="SeleniumLibrary">
 <arg>${HOME_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231115 15:10:31.744" level="INFO">Opening url 'http://localhost:5001'</msg>
-<msg timestamp="20231115 15:10:37.289" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20231115 15:10:37.289" level="FAIL">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
-  (Session info: chrome=119.0.6045.105)
-Stacktrace:
-	GetHandleVerifier [0x00007FF6586A82B2+55298]
-	(No symbol) [0x00007FF658615E02]
-	(No symbol) [0x00007FF6584D05AB]
-	(No symbol) [0x00007FF6584CC353]
-	(No symbol) [0x00007FF6584BF4CC]
-	(No symbol) [0x00007FF6584C0714]
-	(No symbol) [0x00007FF6584BF8DF]
-	(No symbol) [0x00007FF6584BE803]
-	(No symbol) [0x00007FF6584BE7A8]
-	(No symbol) [0x00007FF6584BCF0E]
-	(No symbol) [0x00007FF6584BD803]
-	(No symbol) [0x00007FF6584D29BF]
-	(No symbol) [0x00007FF65854AE27]
-	(No symbol) [0x00007FF6585320AA]
-	(No symbol) [0x00007FF65854AAA4]
-	(No symbol) [0x00007FF658531E83]
-	(No symbol) [0x00007FF65850670A]
-	(No symbol) [0x00007FF658507964]
-	GetHandleVerifier [0x00007FF658A20AAB+3694587]
-	GetHandleVerifier [0x00007FF658A7728E+4048862]
-	GetHandleVerifier [0x00007FF658A6F173+4015811]
-	GetHandleVerifier [0x00007FF6587447D6+695590]
-	(No symbol) [0x00007FF658620CE8]
-	(No symbol) [0x00007FF65861CF34]
-	(No symbol) [0x00007FF65861D062]
-	(No symbol) [0x00007FF65860D3A3]
-	BaseThreadInitThunk [0x00007FFDD918257D+29]
-	RtlUserThreadStart [0x00007FFDDB0AAA78+40]
-</msg>
-<status status="FAIL" starttime="20231115 15:10:31.743" endtime="20231115 15:10:37.293"/>
+<msg timestamp="20231120 18:54:56.109" level="INFO">Opening url 'http://localhost:5001'</msg>
+<status status="PASS" starttime="20231120 18:54:56.109" endtime="20231120 18:54:56.793"/>
 </kw>
-<status status="FAIL" starttime="20231115 15:10:31.742" endtime="20231115 15:10:37.293"/>
+<status status="PASS" starttime="20231120 18:54:56.108" endtime="20231120 18:54:56.793"/>
 </kw>
-<status status="FAIL" starttime="20231115 15:10:31.738" endtime="20231115 15:10:37.294">Setup failed:
-WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
-  (Session info: chrome=119.0.6045.105)
-Stacktrace:
-	GetHandleVerifier [0x00007FF6586A82B2+55298]
-	(No symbol) [0x00007FF658615E02]
-	(No symbol) [0x00007FF6584D05AB]
-	(No symbol) [0x00007FF6584CC353]
-	(No symbol) [0x00007FF6584BF4CC]
-	(No symbol) [0x00007FF6584C0714]
-	(No symbol) [0x00007FF6584BF8DF]
-	(No symbol) [0x00007FF6584BE803]
-	(No symbol) [0x00007FF6584BE7A8]
-	(No symbol) [0x00007FF6584BCF0E]
-	(No symbol) [0x00007FF6584BD803]
-	(No symbol) [0x00007FF6584D29BF]
-	(No symbol) [0x00007FF65854AE27]
-	(No symbol) [0x00007FF6585320AA]
-	(No symbol) [0x00007FF65854AAA4]
-	(No symbol) [0x00007FF658531E83]
-	(No symbol) [0x00007FF65850670A]
-	(No symbol) [0x00007FF658507964]
-	GetHandleVerifier [0x00007FF658A20AAB+3694587]
-	GetHandleVerifier [0x00007FF658A7728E+4048862]
-	GetHandleVerifier [0x00007FF658A6F173+4015811]
-	GetHandleVerifier [0x00007FF6587447D6+695590]
-	(No symbol) [0x00007FF658620CE8]
-	(No symbol) [0x00007FF65861CF34]
-	(No symbol) [0x00007FF65861D062]
-	(No symbol) [0x00007FF65860D3A3]
-	BaseThreadInitThunk [0x00007FFDD918257D+29]
-	RtlUserThreadStart [0x00007FFDDB0AAA78+40]
-</status>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20231120 18:54:56.796" level="INFO">Clicking link 'Login'.</msg>
+<status status="PASS" starttime="20231120 18:54:56.794" endtime="20231120 18:54:58.438"/>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231120 18:54:58.943" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231120 18:54:58.439" endtime="20231120 18:54:58.943"/>
+</kw>
+<status status="PASS" starttime="20231120 18:54:58.438" endtime="20231120 18:54:58.943"/>
+</kw>
+<status status="PASS" starttime="20231120 18:54:56.107" endtime="20231120 18:54:58.944"/>
 </test>
 <test id="s1-s1-t2" name="Click Register Link" line="12">
-<kw name="Go To Main Page" library="resource" type="SETUP">
+<kw name="Go To Starting Page" library="resource" type="SETUP">
 <kw name="Go To" library="SeleniumLibrary">
 <arg>${HOME_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231115 15:10:37.301" level="INFO">Opening url 'http://localhost:5001'</msg>
-<msg timestamp="20231115 15:10:42.700" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20231115 15:10:42.700" level="FAIL">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
-  (Session info: chrome=119.0.6045.105)
-Stacktrace:
-	GetHandleVerifier [0x00007FF6586A82B2+55298]
-	(No symbol) [0x00007FF658615E02]
-	(No symbol) [0x00007FF6584D05AB]
-	(No symbol) [0x00007FF6584CC353]
-	(No symbol) [0x00007FF6584BF4CC]
-	(No symbol) [0x00007FF6584C0714]
-	(No symbol) [0x00007FF6584BF8DF]
-	(No symbol) [0x00007FF6584BE803]
-	(No symbol) [0x00007FF6584BE7A8]
-	(No symbol) [0x00007FF6584BCF0E]
-	(No symbol) [0x00007FF6584BD803]
-	(No symbol) [0x00007FF6584D29BF]
-	(No symbol) [0x00007FF65854AE27]
-	(No symbol) [0x00007FF6585320AA]
-	(No symbol) [0x00007FF65854AAA4]
-	(No symbol) [0x00007FF658531E83]
-	(No symbol) [0x00007FF65850670A]
-	(No symbol) [0x00007FF658507964]
-	GetHandleVerifier [0x00007FF658A20AAB+3694587]
-	GetHandleVerifier [0x00007FF658A7728E+4048862]
-	GetHandleVerifier [0x00007FF658A6F173+4015811]
-	GetHandleVerifier [0x00007FF6587447D6+695590]
-	(No symbol) [0x00007FF658620CE8]
-	(No symbol) [0x00007FF65861CF34]
-	(No symbol) [0x00007FF65861D062]
-	(No symbol) [0x00007FF65860D3A3]
-	BaseThreadInitThunk [0x00007FFDD918257D+29]
-	RtlUserThreadStart [0x00007FFDDB0AAA78+40]
-</msg>
-<status status="FAIL" starttime="20231115 15:10:37.301" endtime="20231115 15:10:42.702"/>
+<msg timestamp="20231120 18:54:58.946" level="INFO">Opening url 'http://localhost:5001'</msg>
+<status status="PASS" starttime="20231120 18:54:58.946" endtime="20231120 18:54:59.486"/>
 </kw>
-<status status="FAIL" starttime="20231115 15:10:37.301" endtime="20231115 15:10:42.702"/>
+<status status="PASS" starttime="20231120 18:54:58.945" endtime="20231120 18:54:59.486"/>
 </kw>
-<status status="FAIL" starttime="20231115 15:10:37.300" endtime="20231115 15:10:42.704">Setup failed:
-WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
-  (Session info: chrome=119.0.6045.105)
-Stacktrace:
-	GetHandleVerifier [0x00007FF6586A82B2+55298]
-	(No symbol) [0x00007FF658615E02]
-	(No symbol) [0x00007FF6584D05AB]
-	(No symbol) [0x00007FF6584CC353]
-	(No symbol) [0x00007FF6584BF4CC]
-	(No symbol) [0x00007FF6584C0714]
-	(No symbol) [0x00007FF6584BF8DF]
-	(No symbol) [0x00007FF6584BE803]
-	(No symbol) [0x00007FF6584BE7A8]
-	(No symbol) [0x00007FF6584BCF0E]
-	(No symbol) [0x00007FF6584BD803]
-	(No symbol) [0x00007FF6584D29BF]
-	(No symbol) [0x00007FF65854AE27]
-	(No symbol) [0x00007FF6585320AA]
-	(No symbol) [0x00007FF65854AAA4]
-	(No symbol) [0x00007FF658531E83]
-	(No symbol) [0x00007FF65850670A]
-	(No symbol) [0x00007FF658507964]
-	GetHandleVerifier [0x00007FF658A20AAB+3694587]
-	GetHandleVerifier [0x00007FF658A7728E+4048862]
-	GetHandleVerifier [0x00007FF658A6F173+4015811]
-	GetHandleVerifier [0x00007FF6587447D6+695590]
-	(No symbol) [0x00007FF658620CE8]
-	(No symbol) [0x00007FF65861CF34]
-	(No symbol) [0x00007FF65861D062]
-	(No symbol) [0x00007FF65860D3A3]
-	BaseThreadInitThunk [0x00007FFDD918257D+29]
-	RtlUserThreadStart [0x00007FFDDB0AAA78+40]
-</status>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Register new user</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20231120 18:54:59.487" level="INFO">Clicking link 'Register new user'.</msg>
+<status status="PASS" starttime="20231120 18:54:59.487" endtime="20231120 18:55:01.047"/>
+</kw>
+<kw name="Register Page Should be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Register</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231120 18:55:01.551" level="INFO">Page title is 'Register'.</msg>
+<status status="PASS" starttime="20231120 18:55:01.048" endtime="20231120 18:55:01.551"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:01.047" endtime="20231120 18:55:01.551"/>
+</kw>
+<status status="PASS" starttime="20231120 18:54:58.945" endtime="20231120 18:55:01.551"/>
 </test>
 <kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20231115 15:10:42.710" endtime="20231115 15:10:45.548"/>
+<status status="PASS" starttime="20231120 18:55:01.553" endtime="20231120 18:55:05.514"/>
 </kw>
-<status status="FAIL" starttime="20231115 15:10:24.798" endtime="20231115 15:10:45.549"/>
+<status status="PASS" starttime="20231120 18:54:45.097" endtime="20231120 18:55:05.514"/>
 </suite>
 <suite id="s1-s2" name="Login" source="C:\Users\seppo\Documents\HY\Ohjelmistotuotanto\palautukset\palautusrepositorio\viikko3\web-login\src\tests\login.robot">
 <kw name="Open And Configure Browser" library="resource" type="SETUP">
 <kw name="Evaluate" library="BuiltIn">
 <var>${options}</var>
-<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys.modules['selenium.webdriver'].FirefoxOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20231115 15:10:49.681" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000113D046A000&gt;</msg>
-<status status="PASS" starttime="20231115 15:10:49.680" endtime="20231115 15:10:49.681"/>
+<msg timestamp="20231120 18:55:05.522" level="INFO">${options} = &lt;selenium.webdriver.firefox.options.Options object at 0x0000025E3388D0A0&gt;</msg>
+<status status="PASS" starttime="20231120 18:55:05.522" endtime="20231120 18:55:05.522"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${options}</arg>
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20231115 15:10:49.681" endtime="20231115 15:10:49.681"/>
+<status status="PASS" starttime="20231120 18:55:05.523" endtime="20231120 18:55:05.523"/>
 </kw>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=chrome</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231115 15:10:49.682" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<status status="PASS" starttime="20231115 15:10:49.682" endtime="20231115 15:10:53.299"/>
+<msg timestamp="20231120 18:55:05.523" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20231120 18:55:05.523" endtime="20231120 18:55:13.325"/>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <arg>${DELAY}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20231115 15:10:53.300" endtime="20231115 15:10:53.301"/>
+<status status="PASS" starttime="20231120 18:55:13.325" endtime="20231120 18:55:13.325"/>
 </kw>
-<status status="PASS" starttime="20231115 15:10:49.679" endtime="20231115 15:10:53.301"/>
+<status status="PASS" starttime="20231120 18:55:05.522" endtime="20231120 18:55:13.325"/>
 </kw>
 <test id="s1-s2-t1" name="Login With Correct Credentials" line="8">
 <kw name="Create User And Go To Login Page" type="SETUP">
-<kw name="Create User">
+<kw name="Create User" library="AppLibrary">
 <arg>kalle</arg>
 <arg>kalle123</arg>
-<msg timestamp="20231115 15:10:53.316" level="FAIL">No keyword with name 'Create User' found.</msg>
-<status status="FAIL" starttime="20231115 15:10:53.316" endtime="20231115 15:10:53.316"/>
+<status status="PASS" starttime="20231120 18:55:13.327" endtime="20231120 18:55:19.427"/>
 </kw>
 <kw name="Go To Login Page" library="resource">
-<status status="NOT RUN" starttime="20231115 15:10:53.317" endtime="20231115 15:10:53.317"/>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231120 18:55:19.428" level="INFO">Opening url 'http://localhost:5001/login'</msg>
+<status status="PASS" starttime="20231120 18:55:19.428" endtime="20231120 18:55:20.002"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:19.427" endtime="20231120 18:55:20.002"/>
 </kw>
 <kw name="Login Page Should Be Open" library="resource">
-<status status="NOT RUN" starttime="20231115 15:10:53.317" endtime="20231115 15:10:53.317"/>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231120 18:55:20.506" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231120 18:55:20.002" endtime="20231120 18:55:20.506"/>
 </kw>
-<status status="FAIL" starttime="20231115 15:10:53.304" endtime="20231115 15:10:53.317"/>
+<status status="PASS" starttime="20231120 18:55:20.002" endtime="20231120 18:55:20.506"/>
 </kw>
-<status status="FAIL" starttime="20231115 15:10:53.301" endtime="20231115 15:10:53.318">Setup failed:
-No keyword with name 'Create User' found.</status>
+<status status="PASS" starttime="20231120 18:55:13.327" endtime="20231120 18:55:20.506"/>
+</kw>
+<kw name="Set Username">
+<arg>kalle</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231120 18:55:20.507" level="INFO">Typing text 'kalle' into text field 'username'.</msg>
+<status status="PASS" starttime="20231120 18:55:20.506" endtime="20231120 18:55:22.110"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:20.506" endtime="20231120 18:55:22.110"/>
+</kw>
+<kw name="Set Password">
+<arg>kalle123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231120 18:55:22.111" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231120 18:55:23.121" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231120 18:55:23.631" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231120 18:55:22.111" endtime="20231120 18:55:23.631"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:22.110" endtime="20231120 18:55:23.631"/>
+</kw>
+<kw name="Submit Credentials">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231120 18:55:23.632" level="INFO">Clicking button 'Login'.</msg>
+<status status="PASS" starttime="20231120 18:55:23.632" endtime="20231120 18:55:25.699"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:23.631" endtime="20231120 18:55:25.699"/>
+</kw>
+<kw name="Login Should Succeed">
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Ohtu Application main page</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231120 18:55:26.203" level="INFO">Page title is 'Ohtu Application main page'.</msg>
+<status status="PASS" starttime="20231120 18:55:25.700" endtime="20231120 18:55:26.203"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:25.700" endtime="20231120 18:55:26.203"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:25.700" endtime="20231120 18:55:26.203"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:13.327" endtime="20231120 18:55:26.204"/>
 </test>
 <test id="s1-s2-t2" name="Login With Incorrect Password" line="14">
 <kw name="Create User And Go To Login Page" type="SETUP">
-<kw name="Create User">
+<kw name="Create User" library="AppLibrary">
 <arg>kalle</arg>
 <arg>kalle123</arg>
-<msg timestamp="20231115 15:10:53.337" level="FAIL">No keyword with name 'Create User' found.</msg>
-<status status="FAIL" starttime="20231115 15:10:53.337" endtime="20231115 15:10:53.337"/>
+<status status="PASS" starttime="20231120 18:55:26.206" endtime="20231120 18:55:32.281"/>
 </kw>
 <kw name="Go To Login Page" library="resource">
-<status status="NOT RUN" starttime="20231115 15:10:53.338" endtime="20231115 15:10:53.338"/>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231120 18:55:32.282" level="INFO">Opening url 'http://localhost:5001/login'</msg>
+<status status="PASS" starttime="20231120 18:55:32.282" endtime="20231120 18:55:32.817"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:32.281" endtime="20231120 18:55:32.817"/>
 </kw>
 <kw name="Login Page Should Be Open" library="resource">
-<status status="NOT RUN" starttime="20231115 15:10:53.338" endtime="20231115 15:10:53.338"/>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231120 18:55:33.320" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231120 18:55:32.817" endtime="20231120 18:55:33.320"/>
 </kw>
-<status status="FAIL" starttime="20231115 15:10:53.325" endtime="20231115 15:10:53.339"/>
+<status status="PASS" starttime="20231120 18:55:32.817" endtime="20231120 18:55:33.320"/>
 </kw>
-<status status="FAIL" starttime="20231115 15:10:53.323" endtime="20231115 15:10:53.341">Setup failed:
-No keyword with name 'Create User' found.</status>
+<status status="PASS" starttime="20231120 18:55:26.206" endtime="20231120 18:55:33.320"/>
+</kw>
+<kw name="Set Username">
+<arg>kalle</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231120 18:55:33.321" level="INFO">Typing text 'kalle' into text field 'username'.</msg>
+<status status="PASS" starttime="20231120 18:55:33.320" endtime="20231120 18:55:34.849"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:33.320" endtime="20231120 18:55:34.849"/>
+</kw>
+<kw name="Set Password">
+<arg>kalle456</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231120 18:55:34.850" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231120 18:55:35.859" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231120 18:55:36.368" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231120 18:55:34.850" endtime="20231120 18:55:36.368"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:34.849" endtime="20231120 18:55:36.368"/>
+</kw>
+<kw name="Submit Credentials">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231120 18:55:36.369" level="INFO">Clicking button 'Login'.</msg>
+<status status="PASS" starttime="20231120 18:55:36.369" endtime="20231120 18:55:38.420"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:36.369" endtime="20231120 18:55:38.420"/>
+</kw>
+<kw name="Login Should Fail With Message">
+<arg>Invalid username or password</arg>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231120 18:55:38.924" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231120 18:55:38.421" endtime="20231120 18:55:38.924"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:38.421" endtime="20231120 18:55:38.924"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231120 18:55:39.932" level="INFO">Current page contains text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20231120 18:55:38.924" endtime="20231120 18:55:39.932"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:38.420" endtime="20231120 18:55:39.932"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:26.205" endtime="20231120 18:55:39.932"/>
+</test>
+<test id="s1-s2-t3" name="Login With Nonexistent Username" line="20">
+<kw name="Create User And Go To Login Page" type="SETUP">
+<kw name="Create User" library="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="PASS" starttime="20231120 18:55:39.935" endtime="20231120 18:55:46.012"/>
+</kw>
+<kw name="Go To Login Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231120 18:55:46.012" level="INFO">Opening url 'http://localhost:5001/login'</msg>
+<status status="PASS" starttime="20231120 18:55:46.012" endtime="20231120 18:55:46.545"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:46.012" endtime="20231120 18:55:46.545"/>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231120 18:55:47.049" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231120 18:55:46.545" endtime="20231120 18:55:47.049"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:46.545" endtime="20231120 18:55:47.049"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:39.934" endtime="20231120 18:55:47.049"/>
+</kw>
+<kw name="Set Username">
+<arg>kalle2</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231120 18:55:47.050" level="INFO">Typing text 'kalle2' into text field 'username'.</msg>
+<status status="PASS" starttime="20231120 18:55:47.050" endtime="20231120 18:55:48.579"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:47.049" endtime="20231120 18:55:48.579"/>
+</kw>
+<kw name="Set Password">
+<arg>kalle456</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231120 18:55:48.580" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231120 18:55:49.589" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231120 18:55:50.099" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231120 18:55:48.580" endtime="20231120 18:55:50.099"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:48.579" endtime="20231120 18:55:50.099"/>
+</kw>
+<kw name="Submit Credentials">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231120 18:55:50.100" level="INFO">Clicking button 'Login'.</msg>
+<status status="PASS" starttime="20231120 18:55:50.099" endtime="20231120 18:55:52.150"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:50.099" endtime="20231120 18:55:52.150"/>
+</kw>
+<kw name="Login Should Fail With Message">
+<arg>Invalid username or password</arg>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231120 18:55:52.654" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231120 18:55:52.152" endtime="20231120 18:55:52.654"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:52.151" endtime="20231120 18:55:52.654"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231120 18:55:53.664" level="INFO">Current page contains text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20231120 18:55:52.654" endtime="20231120 18:55:53.664"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:52.151" endtime="20231120 18:55:53.664"/>
+</kw>
+<status status="PASS" starttime="20231120 18:55:39.934" endtime="20231120 18:55:53.664"/>
 </test>
 <kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20231115 15:10:53.348" endtime="20231115 15:10:56.651"/>
+<status status="PASS" starttime="20231120 18:55:53.665" endtime="20231120 18:55:57.366"/>
 </kw>
-<status status="FAIL" starttime="20231115 15:10:45.553" endtime="20231115 15:10:56.651"/>
+<status status="PASS" starttime="20231120 18:55:05.516" endtime="20231120 18:55:57.366"/>
 </suite>
-<status status="FAIL" starttime="20231115 15:10:24.750" endtime="20231115 15:10:56.656"/>
+<status status="PASS" starttime="20231120 18:54:45.071" endtime="20231120 18:55:57.369"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="4" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="4" skip="0" id="s1" name="Tests">Tests</stat>
-<stat pass="0" fail="2" skip="0" id="s1-s1" name="Home">Tests.Home</stat>
-<stat pass="0" fail="2" skip="0" id="s1-s2" name="Login">Tests.Login</stat>
+<stat pass="5" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Home">Tests.Home</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s2" name="Login">Tests.Login</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20231115 15:10:29.401" level="ERROR">Error in file 'C:\Users\seppo\Documents\HY\Ohjelmistotuotanto\palautukset\palautusrepositorio\viikko3\web-login\src\tests\resource.robot' on line 3: Initializing library 'AppLibrary' with no arguments failed: ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000113D042BE00&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
-Traceback (most recent call last):
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connection.py", line 203, in _new_conn
-    sock = connection.create_connection(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
-    raise err
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connectionpool.py", line 496, in _make_request
-    conn.request(
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connection.py", line 395, in request
-    self.endheaders()
-  File "C:\Program Files\Python312\Lib\http\client.py", line 1314, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "C:\Program Files\Python312\Lib\http\client.py", line 1074, in _send_output
-    self.send(msg)
-  File "C:\Program Files\Python312\Lib\http\client.py", line 1018, in send
-    self.connect()
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connection.py", line 243, in connect
-    self.sock = self._new_conn()
-                ^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connection.py", line 218, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x00000113D042BE00&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\util\retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000113D042BE00&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\seppo\Documents\HY\Ohjelmistotuotanto\palautukset\palautusrepositorio\viikko3\web-login\src\AppLibrary.py", line 8, in __init__
-    self.reset_application()
-  File "C:\Users\seppo\Documents\HY\Ohjelmistotuotanto\palautukset\palautusrepositorio\viikko3\web-login\src\AppLibrary.py", line 11, in reset_application
-    requests.post(f"{self._base_url}/tests/reset")
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\adapters.py", line 519, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000113D042BE00&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
-<msg timestamp="20231115 15:10:49.661" level="ERROR">Error in file 'C:\Users\seppo\Documents\HY\Ohjelmistotuotanto\palautukset\palautusrepositorio\viikko3\web-login\src\tests\resource.robot' on line 3: Initializing library 'AppLibrary' with no arguments failed: ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000113D042BDA0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
-Traceback (most recent call last):
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connection.py", line 203, in _new_conn
-    sock = connection.create_connection(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
-    raise err
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connectionpool.py", line 496, in _make_request
-    conn.request(
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connection.py", line 395, in request
-    self.endheaders()
-  File "C:\Program Files\Python312\Lib\http\client.py", line 1314, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "C:\Program Files\Python312\Lib\http\client.py", line 1074, in _send_output
-    self.send(msg)
-  File "C:\Program Files\Python312\Lib\http\client.py", line 1018, in send
-    self.connect()
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connection.py", line 243, in connect
-    self.sock = self._new_conn()
-                ^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connection.py", line 218, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x00000113D042BDA0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\urllib3\util\retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000113D042BDA0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\seppo\Documents\HY\Ohjelmistotuotanto\palautukset\palautusrepositorio\viikko3\web-login\src\AppLibrary.py", line 8, in __init__
-    self.reset_application()
-  File "C:\Users\seppo\Documents\HY\Ohjelmistotuotanto\palautukset\palautusrepositorio\viikko3\web-login\src\AppLibrary.py", line 11, in reset_application
-    requests.post(f"{self._base_url}/tests/reset")
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\seppo\AppData\Local\pypoetry\Cache\virtualenvs\web-login-vmCQmZ6r-py3.12\Lib\site-packages\requests\adapters.py", line 519, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /tests/reset (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000113D042BDA0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
 </errors>
 </robot>

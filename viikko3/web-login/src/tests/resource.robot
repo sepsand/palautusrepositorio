@@ -12,8 +12,8 @@ ${REGISTER_URL}  http://${SERVER}/register
 *** Keywords ***
 Open And Configure Browser
     # jos käytät Firefoxia ja Geckodriveriä käytä seuraavaa riviä sitä alemman sijaan
-    # ${options}  Evaluate  sys.modules['selenium.webdriver'].FirefoxOptions()  sys
-    ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
+    ${options}  Evaluate  sys.modules['selenium.webdriver'].FirefoxOptions()  sys
+    # ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
     Call Method    ${options}    add_argument    --no-sandbox
     # seuraava rivi on kommentoitu toistaiseksi pois
     # Call Method  ${options}  add_argument  --headless
@@ -29,7 +29,7 @@ Main Page Should Be Open
 Go To Login Page
     Go To  ${LOGIN_URL}
 
-Go To Main Page
+Go To Starting Page
     Go To  ${HOME_URL}
 
 Register Page Should be Open
