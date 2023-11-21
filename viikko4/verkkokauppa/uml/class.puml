@@ -1,0 +1,17 @@
+@startuml
+Class Kauppa
+Class Kirjanpito
+Class Ostoskori
+Class Pankki
+Class Tuote
+Class Varasto
+Class Viitegeneraattori
+
+Kauppa-->Varasto
+Kauppa-->Pankki
+Kauppa-->Viitegeneraattori
+Kauppa-->Ostoskori
+Pankki-->Kirjanpito
+Varasto-->Kirjanpito
+Varasto-->Tuote
+@enduml

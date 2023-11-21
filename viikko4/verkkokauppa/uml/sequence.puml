@@ -1,0 +1,53 @@
+@startuml
+Main -> Kauppa: aloita_asiointi()
+Kauppa -> Ostoskori: Ostoskori()
+'Kauppa <-- Ostoskori
+'Main <-- Kauppa
+Main -> Kauppa: lisaa_koriin(tuote=1)
+Kauppa -> Varasto: saldo(tuote=1)
+'Kauppa <-- Varasto
+Kauppa -> Varasto: hae_tuote(tuote=1)
+'Kauppa <-- Varasto
+Kauppa -> Ostoskori: lisaa(tuote=1)
+'Kauppa <-- Ostoskori
+Kauppa -> Varasto: ota_varastosta(tuote=1)
+'Kauppa <-- Varasto
+'Main <-- Kauppa
+Main -> Kauppa: lisaa_koriin(tuote=3)
+Kauppa -> Varasto: saldo(tuote=3)
+'Kauppa <-- Varasto
+Kauppa -> Varasto: hae_tuote(tuote=3)
+'Kauppa <-- Varasto
+Kauppa -> Ostoskori: lisaa(tuote=3)
+'Kauppa <-- Ostoskori
+Kauppa -> Varasto: ota_varastosta(tuote=3)
+'Kauppa <-- Varasto
+'Main <-- Kauppa
+Main -> Kauppa: lisaa_koriin(tuote=3)
+Kauppa -> Varasto: saldo(tuote=3)
+'Kauppa <-- Varasto
+Kauppa -> Varasto: hae_tuote(tuote=3)
+'Kauppa <-- Varasto
+Kauppa -> Ostoskori: lisaa(tuote=3)
+'Kauppa <-- Ostoskori
+Kauppa -> Varasto: ota_varastosta(tuote=3)
+'Kauppa <-- Varasto
+'Main <-- Kauppa
+Main -> Kauppa: poista_korista(tuote=1)
+Kauppa -> Varasto: hae_tuote(tuote=1)
+'Kauppa <-- Varasto
+Kauppa -> Ostoskori: poista(tuote=1)
+'Kauppa <-- Ostoskori
+Kauppa -> Varasto: palauta_varastoon(tuote=1)
+'Main <-- Kauppa
+Main -> Kauppa: tilimaksu(nimi, tilinumero)
+Kauppa -> Viitegeneraattori: uusi()
+'Kauppa <-- Viitegeneraattori
+Kauppa -> Ostoskori: hinta()
+'Kauppa <-- Ostoskori
+Kauppa -> Pankki: tilisiirto()
+Pankki -> Kirjanpito: lisaa_tapahtuma()
+'Pankki <-- Kirjanpito
+'Kauppa <-- Pankki
+'Main <-- Kauppa
+@enduml
