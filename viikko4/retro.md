@@ -17,3 +17,4 @@ Myös tässä mallissa kommenttien perusteella keskustellaan ja päätetään to
 
 Molemmissa yllä kuvatuissa malleissa kokoontumineen kestää joko niin kauan kuin asioiden käsittely vaati tai retrospektiiville varattu aika tulee täyteen. Kokoontuminen päättyy, kun jompi kumpi edellä mainituista ehdoista täyttyy.
 
+
