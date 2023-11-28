@@ -16,5 +16,3 @@ Glad, Sad, Mad on toinen tapa toteuttaa retrospektiivi. Siinä tiimiltä kerät�
 Myös tässä mallissa kommenttien perusteella keskustellaan ja päätetään toimenpiteistä, joilla tiimin toimintaa pyritään parantamaan.
 
 Molemmissa yllä kuvatuissa malleissa kokoontumineen kestää joko niin kauan kuin asioiden käsittely vaati tai retrospektiiville varattu aika tulee täyteen. Kokoontuminen päättyy, kun jompi kumpi edellä mainituista ehdoista täyttyy.
-
-
