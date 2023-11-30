@@ -14,7 +14,7 @@ class Summa():
         self._io = io
 
     def suorita(self):
-        self._sovellus(self._io())
+        self._sovellus.plus(self._io())
 
 class Erotus():
     def __init__(self, sovellus, io) -> None:
@@ -22,7 +22,7 @@ class Erotus():
         self._io = io
 
     def suorita(self):
-        self._sovellus(self._io())
+        self._sovellus.miinus(self._io())
 
 class Nollaus():
     def __init__(self, sovellus, io) -> None:
@@ -30,7 +30,15 @@ class Nollaus():
         self._io = io
 
     def suorita(self):
-        self._sovellus()
+        self._sovellus.nollaa()
+
+class Kumoa():
+    def __init__(self, sovellus, io) -> None:
+        self._sovellus = sovellus
+        self._io = io
+
+    def suorita(self):
+        self._sovellus.kumoa()
 
 
 class Kayttoliittyma:
@@ -39,10 +47,10 @@ class Kayttoliittyma:
         self._root = root
         
         self._komennot = {
-            Komento.SUMMA: Summa(self._sovellus.plus, self._lue_syote),
-            Komento.EROTUS: Erotus(self._sovellus.miinus, self._lue_syote),
-            Komento.NOLLAUS: Nollaus(self._sovellus.nollaa, self._lue_syote),
-            # Komento.KUMOA: Kumoa(sovelluslogiikka, self._lue_syote) # ei ehkä tarvita täällä...
+            Komento.SUMMA: Summa(self._sovellus, self._lue_syote),
+            Komento.EROTUS: Erotus(self._sovellus, self._lue_syote),
+            Komento.NOLLAUS: Nollaus(self._sovellus, self._lue_syote),
+            Komento.KUMOA: Kumoa(self._sovellus, self._lue_syote) # ei ehkä tarvita täällä...
         }
 
     def kaynnista(self):
