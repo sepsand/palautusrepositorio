@@ -1,7 +1,7 @@
 class Sovelluslogiikka:
     def __init__(self, arvo=0):
         self._arvo = arvo
-        self._edellinenArvo = arvo
+        self._edellinenArvo = [arvo]
 
     def miinus(self, operandi):
         self.paivitaEdellinenArvo(self._arvo)
@@ -22,8 +22,11 @@ class Sovelluslogiikka:
         return self._arvo
     
     def kumoa(self):
-        self._arvo = self._edellinenArvo
+        if [] == self._edellinenArvo:
+            pass
+        else:
+            self._arvo = self._edellinenArvo.pop()
 
     def paivitaEdellinenArvo(self, arvo):
-        self._edellinenArvo = arvo
+        self._edellinenArvo.append(arvo)
 
