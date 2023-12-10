@@ -1,8 +1,11 @@
-from matchers import All, And
+from matchers import All, And, Or
 
 class Query():
-    def __init__(self, operations=[]):
-        self.operations = operations
+    def __init__(self, operations=None):
+        if None == operations:
+            self.operations = []
+        else:
+            self.operations = operations
 
     def add(self, operation):
         self.operations.append(operation)
@@ -41,19 +44,30 @@ class PlaysIn(Query):
         return player.team == self._team
 
 class QueryBuilder():
-    def __init__(self, query=Query()):
-        self._query = query
+    _query = None
+    _oneOf = None
+
+    def __init__(self, query=Query(), oneOf=None):
+        QueryBuilder._query = query
+        QueryBuilder._oneOf = oneOf
 
     def build(self):
-        if len(self._query.operations) == 0:
-            result = All()
+        if None == QueryBuilder._oneOf:
+            if len(QueryBuilder._query.operations) == 0:
+                result = All()
+            else:
+                result = And(*QueryBuilder._query.operations)
         else:
-            result = And(*self._query.operations)
+            result = Or(*QueryBuilder._oneOf)
         self.reset()
         return result
     
+    def oneOf(self, *args):
+        return QueryBuilder(None, args)
+
     def reset(self):
-        self._query = Query()
+        QueryBuilder._query = Query()
+        QueryBuilder._oneOf = None
 
     def hasAtLeast(self, value, attr):
         return QueryBuilder(HasAtLeast(self._query, value, attr))
