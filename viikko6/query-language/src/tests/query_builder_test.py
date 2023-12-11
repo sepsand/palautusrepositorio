@@ -12,6 +12,7 @@ class TestQueryBuilder(unittest.TestCase):
         self.reader = PlayerReader(self.url)
         self.stats = Statistics(self.reader)
         self.query = QueryBuilder()
+        self.query.reset()
 
 
     def testHasAtLeast(self):
@@ -35,20 +36,20 @@ class TestQueryBuilder(unittest.TestCase):
             self.assertAlmostEqual(player.team, "NYR")
 
 ## No idea why these test do not work. It seems that pytest does not handle QueryBuilder instantiation properly.
-    # def testSmoke(self):
-    #     matcher = self.query.build()
-    #     players = self.stats.matches(matcher)
-    #     self.assertEqual(1058, len(players))
-    #     # assert 1058 == len(players)
+    def testSmoke(self):
+        matcher = self.query.build()
+        players = self.stats.matches(matcher)
+        self.assertEqual(1058, len(players))
+        # assert 1058 == len(players)
 
-    # def testTehtävä4(self):
-    #     correctOutput = [   "Barclay Goodrow      NYR          11 + 20 = 31",
-    #                         "Jimmy Vesey          NYR          11 + 14 = 25",
-    #                         "Adam Fox             NYR          12 + 60 = 72",
-    #                         "Kaapo Kakko          NYR          18 + 22 = 40",
-    #                         "Alexis Lafrenière    NYR          16 + 23 = 39"  ]
-    #     matcher = self.query.playsIn("NYR").hasAtLeast(10, "goals").hasFewerThan(20, "goals").build()
-    #     output = []
-    #     for player in self.stats.matches(matcher):
-    #         output.append(str(player))
-    #     self.assertEqual(output, correctOutput)
+    def testTehtävä4(self):
+        correctOutput = [   "Barclay Goodrow      NYR          11 + 20 = 31",
+                            "Jimmy Vesey          NYR          11 + 14 = 25",
+                            "Adam Fox             NYR          12 + 60 = 72",
+                            "Kaapo Kakko          NYR          18 + 22 = 40",
+                            "Alexis Lafrenière    NYR          16 + 23 = 39"  ]
+        matcher = self.query.playsIn("NYR").hasAtLeast(10, "goals").hasFewerThan(20, "goals").build()
+        output = []
+        for player in self.stats.matches(matcher):
+            output.append(str(player))
+        self.assertEqual(output, correctOutput)

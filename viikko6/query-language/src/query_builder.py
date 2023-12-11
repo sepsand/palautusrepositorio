@@ -70,10 +70,10 @@ class QueryBuilder():
         QueryBuilder._oneOf = None
 
     def hasAtLeast(self, value, attr):
-        return QueryBuilder(HasAtLeast(self._query, value, attr))
+        return QueryBuilder(HasAtLeast(QueryBuilder._query, value, attr))
 
     def hasFewerThan(self, value, attr):
-        return QueryBuilder(HasFewerThan(self._query, value, attr))
+        return QueryBuilder(HasFewerThan(QueryBuilder._query, value, attr))
 
     def playsIn(self, team):
-        return QueryBuilder(PlaysIn(self._query, team))
+        return QueryBuilder(PlaysIn(QueryBuilder._query, team))
